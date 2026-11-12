@@ -6,6 +6,17 @@
 FastAPI service that converts messy consulting meeting notes into a **crisp executive summary** and a **structured action plan**.  
 Optionally uses OpenAI (if `OPENAI_API_KEY` is set); otherwise falls back to a rule-based approach.
 
+## Demo
+
+Real responses from the running service (`uvicorn app.main:app`). `/actions` turns raw meeting notes into owned,
+dated action items; `/summarize` returns the key sentences (or an LLM summary when `OPENAI_API_KEY` is set).
+
+![curl calls to /actions and /summarize with their JSON responses](docs/screenshots/api-calls.png)
+
+Interactive OpenAPI docs at `/docs`:
+
+![OpenAPI docs for the workflow automation bot](docs/screenshots/api-docs.png)
+
 ## Features
 - `POST /summarize` → 5-bullet executive summary
 - `POST /actions`   → action items with owners + default deadlines
